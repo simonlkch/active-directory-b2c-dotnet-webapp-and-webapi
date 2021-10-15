@@ -113,6 +113,10 @@ You can now perform all the previous steps as seen in the demo tenant environmen
 - MSAL cache needs a TenantId along with the user's ObjectId to function. It retrieves these two from the claims returned in the id_token. As TenantId is not guaranteed to be present in id_tokens issued by B2C unless the steps [listed in this document](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#caching-with-b2c-in-msalnet), 
 if you are following the workarounds listed in the doc and tenantId claim (tid) is available in the user's token, then please change the code in [ClaimsPrincipalsExtension.cs](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/blob/nvalluri-b2c/TaskWebApp/Utils/ClaimsPrincipalExtension.cs) GetB2CMsalAccountId() to let MSAL pick this from the claims instead.
 
+- For local debug, IIS Express, for more information
+  - Make sure you have installed `Microsoft.Owin.Host.SystemWeb package` in the project. This package is needed for startup detection in IIS hosted applications. For more    information you can refer to
+  - [OwinStartup not firing](https://stackoverflow.com/questions/20203982/owinstartup-not-firing)
+
 ## Next Steps
 
 Customize your user experience further by supporting more identity providers.  Checkout the docs belows to learn how to add additional providers:
